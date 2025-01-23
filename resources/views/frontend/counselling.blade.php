@@ -6,7 +6,7 @@
     <!--            alt="" class="img-fluid">-->
     <!--    </figure>-->
     <!--</section>-->
-     @section('meta')
+    @section('meta')
         <?php
         $pageTitle = "Experienced Mental Health Therapist & Psychologist Near You | Online Counseling Services";
         $pageDescription = "Find expert mental health therapy and counseling services near you. Connect with a qualified psychologist for personalized online counseling sessions to address your mental health needs effectively.";
@@ -14,52 +14,52 @@
 
             switch ($slug) {
                 case 'anger':
-                    $pageTitle = "Effective Anger Management Therapy: Transform Your Life Today";
-                    $pageDescription = "Discover comprehensive anger management therapy solutions tailored to your needs. Our expert counselors provide personalized strategies to help you regain control and lead a happier, more fulfilling life.";
+                    $pageTitle = "Anger Management | Anger Management Techniques | EDHA";
+                    $pageDescription = "EDHA offers counseling services specifically designed to help individuals manage and reduce anger. We helps individuals understand the root causes of their anger and develop healthier responses.";
                     break;
                 case 'stress-anxiety-depression':
                     $pageTitle = "Online Counsellor for Depression & Anxiety | Stress Management";
                     $pageDescription = "Discover expert solutions for stress management and anxiety treatment with online counseling for depression. Get personalized support from qualified counselors. Start your journey towards inner peace today.";
                     break;
                 case 'relationship':
-                    $pageTitle = "Expert Relationship Counselling Services | Reconnect & Rekindle Love";
-                    $pageDescription = "Seeking professional relationship counselling? Our experienced therapists offer guidance to help you strengthen your bond and navigate challenges. Start your journey towards a healthier relationship today.";
+                    $pageTitle = "Relationship Issues Counseling | Counseling for Toxic Relationship";
+                    $pageDescription = "If you&#39;re seeking counseling for relationship issues or dealing with a toxic relationship, EDHA provides professional guidance and support to help individuals navigate these challenging situations.";
                     break;
                 case 'marriage':
-                    $pageTitle = "Relationship Counselling: Solve Issues & Maintain your life.";
-                    $pageDescription = "Explore top-tier marriage and relationship counseling services designed to ignite passion and strengthen bonds. Our expert counselors guide you through challenges to foster enduring love and understanding.";
+                    $pageTitle = "Marriage Counseling | Isolation | EDHA";
+                    $pageDescription = "EDHA offers comprehensive marriage counseling to help couples address issues of isolation and disconnection, which can strain their relationship.";
                     break;
                 case 'trauma':
-                    $pageTitle = "Post Traumatic Stress Disorder Therapy (PTSD) | Edha";
-                    $pageDescription = "Expert therapy for post traumatic stress disorder therapy (PTSD) & mental health concerns. Get support from qualified counselors & psychologists at Edha.";
+                    $pageTitle = "Overcoming Fear | Overcoming Phobia | EDHA";
+                    $pageDescription = "EDHA offers expert counseling services for individuals looking to overcome fear and phobias. Fear and phobias can deeply affect a person’s quality of life, limiting activities and causing anxiety.";
                     break;
                 case 'motherhood-challenges':
-                    $pageTitle = "Navigating Motherhood Challenges: Tips and Support for Moms";
-                    $pageDescription = "Explore practical solutions and emotional support to overcome the diverse challenges of motherhood. From sleepless nights to balancing responsibilities, discover insights that empower moms on their parenting journey.";
+                    $pageTitle = "Counseling for Postpartum Depression| EDHA";
+                    $pageDescription = "EDHA provides specialized counseling services for individuals experiencing postpartum depression, a condition that can affect new parents, particularly mothers, after childbirth.";
                     break;
                 case 'lifestyle-issues':
-                    $pageTitle = "Exploring Solutions for Lifestyle Issues | Enhance Your Well-being";
-                    $pageDescription = "Discover effective strategies to address lifestyle issues and prioritize your well-being. Our comprehensive guide offers insights and solutions to navigate common challenges, empowering you to lead a healthier and more fulfilling life.";
+                    $pageTitle = "Mid Life Crisis | Sexual Wellness| EDHA";
+                    $pageDescription = "EDHA provides expert counseling for individuals navigating a mid-life crisis, particularly those experiencing challenges related to sexual wellness.";
                     break;
                 case 'parenting':
-                    $pageTitle = "Practical Parenting Tips for Every Stage | Expert Advice and Guidance";
-                    $pageDescription = "Discover essential parenting tips to navigate the joys and challenges of raising children. From newborns to teenagers, our expert advice provides actionable insights for fostering a healthy and happy family life.";
+                    $pageTitle = "Separation Anxiety | Single Parents | EDHA";
+                    $pageDescription = "EDHA offers specialized counseling for individuals dealing with separation anxiety, particularly for single parents facing the emotional challenges of being apart from their children.";
                     break;
                 case 'child-adolescent':
-                    $pageTitle = "Unlock Your Child's Potential: Expert Insights on Child Development";
-                    $pageDescription = "";
+                    $pageTitle = "Identity Crisis | ADHD | Bullying | EDHA";
+                    $pageDescription = "EDHA offers specialized counseling for children and adolescents facing challenges like identity crisis, ADHD, and the effects of bullying.";
                     break;
                 case 'obsessive-compulsive-disorder':
                     $pageTitle = "Understanding Obsessive-Compulsive Disorder: Symptoms, Causes & Treatment";
                     $pageDescription = "Dive into the complexities of Obsessive-Compulsive Disorder (OCD), exploring its symptoms, causes, and effective treatment options. Get comprehensive insights here.";
                     break;
                 case 'counselling':
-                    $pageTitle = "edha : Online Counseling Platform";
-                    $pageDescription = "Book your online counseling sessions with ease for anxiety, stress, depression, PTSD, relationship concerns, marriage-related, lifestyle, parenting, motherhood-related, and other concerns.";
+                    $pageTitle = "Career Counseling | Depression Counseling | EDHA";
+                    $pageDescription = "EDHA provides expert career counseling and depression counseling to individuals seeking guidance in navigating their professional life and emotional well-being.";
                     break;
                 case 'counselling':
-                    $pageTitle = "edha : Online Counseling Platform ";
-                    $pageDescription = "Book your online counseling sessions with ease for anxiety, stress, depression, PTSD, relationship concerns, marriage-related, lifestyle, parenting, motherhood-related, and other concerns.";
+                    $pageTitle = "Career Counseling | Depression Counseling | EDHA";
+                    $pageDescription = "EDHA provides expert career counseling and depression counseling to individuals seeking guidance in navigating their professional life and emotional well-being.";
                     break;
             }
         
