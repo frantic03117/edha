@@ -165,31 +165,34 @@
         }
     </style>
     <meta name="allowsearch" content="yes">
-	<meta name="classification" content="Mental Health"/>
-	<link rel="canonical" href="https://www.edha.life/">
-    <meta name="author" content="Edha"/>
-	<meta name="category" content="Mental Health"/>
-	<meta name="distribution" content="global"/>
-	
-	<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-TEHXRDX6V1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <meta name="classification" content="Mental Health" />
+    <link rel="canonical" href="https://www.edha.life/">
+    <meta name="author" content="Edha" />
+    <meta name="category" content="Mental Health" />
+    <meta name="distribution" content="global" />
 
-  gtag('config', 'G-TEHXRDX6V1');
-</script> 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TEHXRDX6V1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
-<meta name="geo.region" content="IN-HR" />
-<meta name="geo.placename" content="गुरुग्राम" />
-<meta name="geo.position" content="28.464615;77.029919" />
-<meta name="ICBM" content="28.464615, 77.029919" />
-<meta name="google-site-verification" content="vZjKKGMPglAK2OMfX_KiuvB5nlXYabBHbPnzryUyQeo" />
-<meta name="googlebot" content="index, follow" />
-<meta name="language" content="English"/>
-<meta name="revisit-after" content="daily">
-<meta name="msnbot" content="index, follow"/>
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-TEHXRDX6V1');
+    </script>
+
+    <meta name="geo.region" content="IN-HR" />
+    <meta name="geo.placename" content="गुरुग्राम" />
+    <meta name="geo.position" content="28.464615;77.029919" />
+    <meta name="ICBM" content="28.464615, 77.029919" />
+    <meta name="google-site-verification" content="vZjKKGMPglAK2OMfX_KiuvB5nlXYabBHbPnzryUyQeo" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="language" content="English" />
+    <meta name="revisit-after" content="daily">
+    <meta name="msnbot" content="index, follow" />
 </head>
 
 <body>
@@ -499,9 +502,8 @@
 
                             </li>
                             <li>
-                                <a class="dropdown-item"
-                                                        href="{{ url('about') }}#founderMessage">Founder's
-                                                        Message</a>
+                                <a class="dropdown-item" href="{{ url('about') }}#founderMessage">Founder's
+                                    Message</a>
                             </li>
                             <!--<li>-->
                             <!--    <a href="{{ url('find-expert') }}">-->
