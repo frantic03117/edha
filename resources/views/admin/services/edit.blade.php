@@ -33,7 +33,7 @@
                                 </label>
                                 <input type="file" name="image" class="form-control">
                                 <img src="{{ url('public/assets/img/' . $service['image']) }}" class="img-fluid" />
-                                <input type="hiddens" name="hfile" value="{{ $service['image'] }}" />
+                                <input type="hidden" name="hfile" value="{{ $service['image'] }}" />
                             </div>
 
                         </div>
