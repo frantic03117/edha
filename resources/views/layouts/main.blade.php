@@ -17,14 +17,19 @@
     <!-- App favicon -->
     <link rel="shortcut icon" href="favicons/images-favicon.ico">
 
-    {{--<script src="{{ url('public/js/jquery-jquery.min.js') }}"></script>--}}
-    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    {{-- <script src="{{ url('public/js/jquery-jquery.min.js') }}"></script> --}}
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+        crossorigin="anonymous"></script>
 
     <!-- plugin css -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js" integrity="sha512-IsNh5E3eYy3tr/JiX2Yx4vsCujtkhwl7SLqgnwLNgf04Hrt9BT9SXlLlZlWx+OK4ndzAoALhsMNcCmkggjZB1w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" integrity="sha512-+EoPw+Fiwh6eSeRK7zwIKG2MA8i3rV/DGa3tdttQGgWyatG/SkncT53KHQaS5Jh9MNOT3dmFL0FjTY08And/Cw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"
+        integrity="sha512-IsNh5E3eYy3tr/JiX2Yx4vsCujtkhwl7SLqgnwLNgf04Hrt9BT9SXlLlZlWx+OK4ndzAoALhsMNcCmkggjZB1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css"
+        integrity="sha512-+EoPw+Fiwh6eSeRK7zwIKG2MA8i3rV/DGa3tdttQGgWyatG/SkncT53KHQaS5Jh9MNOT3dmFL0FjTY08And/Cw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="{{ url('public/css/jquery.vectormap-jquery-jvectormap-1.2.2.css') }}" rel="stylesheet" type="text/css">
-    
+
     <!-- preloader css -->
     <link rel="stylesheet" href="{{ url('public/css/css-preloader.min.css') }}" type="text/css">
     <!-- apexcharts -->
@@ -45,9 +50,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <link href="{{ url('public/css/style.css') }}" id="app-style" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.6.0/bootstrap-tagsinput.min.css" integrity="sha512-X6069m1NoT+wlVHgkxeWv/W7YzlrJeUhobSzk4J09CWxlplhUzJbiJVvS9mX1GGVYf5LA3N9yQW5Tgnu9P4C7Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.6.0/bootstrap-tagsinput.min.js" integrity="sha512-SXJkO2QQrKk2amHckjns/RYjUIBCI34edl9yh0dzgw3scKu0q4Bo/dUr+sGHMUha0j9Q1Y7fJXJMaBi4xtyfDw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
- @yield('script')
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.6.0/bootstrap-tagsinput.min.css"
+        integrity="sha512-X6069m1NoT+wlVHgkxeWv/W7YzlrJeUhobSzk4J09CWxlplhUzJbiJVvS9mX1GGVYf5LA3N9yQW5Tgnu9P4C7Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.6.0/bootstrap-tagsinput.min.js"
+        integrity="sha512-SXJkO2QQrKk2amHckjns/RYjUIBCI34edl9yh0dzgw3scKu0q4Bo/dUr+sGHMUha0j9Q1Y7fJXJMaBi4xtyfDw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    @yield('script')
     <style>
         .navbar-brand-box {
             background-color: #077773 !important;
@@ -89,11 +99,13 @@
         body[data-sidebar=dark] #sidebar-menu ul li a i {
             color: #fff;
         }
-        body[data-sidebar=dark] #sidebar-menu ul li ul.sub-menu li a{
-            color:#fff;
+
+        body[data-sidebar=dark] #sidebar-menu ul li ul.sub-menu li a {
+            color: #fff;
         }
-        body[data-sidebar=dark][data-sidebar-size=sm] .vertical-menu #sidebar-menu>ul>li:hover>ul a{
-            color:#fff;
+
+        body[data-sidebar=dark][data-sidebar-size=sm] .vertical-menu #sidebar-menu>ul>li:hover>ul a {
+            color: #fff;
         }
 
         /*.mm-active .active{*/
@@ -140,20 +152,24 @@
                     <div class="navbar-brand-box">
                         <a href="{{ url('admin/dashboard') }}" class="logo logo-dark">
                             <span class="logo-sm">
-                                <img src="{{ url('public/assets/img/footer-logo.png') }}" alt=""  class="img-fluid">
+                                <img src="{{ url('public/assets/img/footer-logo.png') }}" alt=""
+                                    class="img-fluid">
                             </span>
                             <span class="logo-lg">
-                                <img src="{{ url('public/assets/img/footer-logo.png') }}" alt="" class="img-fluid">
+                                <img src="{{ url('public/assets/img/footer-logo.png') }}" alt=""
+                                    class="img-fluid">
                                 <!--<span class="logo-txt">edha</span>-->
                             </span>
                         </a>
 
                         <a href="{{ url('admin/dashboard') }}" class="logo logo-light">
                             <span class="logo-sm">
-                                <img src="{{ url('public/assets/img/footer-logo.png') }}" alt="" class="img-fluid">
+                                <img src="{{ url('public/assets/img/footer-logo.png') }}" alt=""
+                                    class="img-fluid">
                             </span>
                             <span class="logo-lg">
-                                <img src="{{ url('public/assets/img/footer-logo.png') }}" alt="" class="img-fluid">
+                                <img src="{{ url('public/assets/img/footer-logo.png') }}" alt=""
+                                    class="img-fluid">
                                 <!--<span class="logo-txt">edha</span>-->
                             </span>
                         </a>
@@ -199,7 +215,7 @@
 
                     <div class="dropdown d-none d-sm-inline-block">
                         <!--<button type="button" class="btn header-item" id="mode-setting-btn">-->
-                          
+
                         <!--    <i class="fas fa-sun" class="icon-lg layout-mode-light"></i>-->
                         <!--</button>-->
                     </div>
@@ -375,7 +391,7 @@
                         </button>
                         <div class="dropdown-menu dropdown-menu-end">
                             <!-- item-->
-                            <a class="dropdown-item" href="{{route('profile')}}"><i
+                            <a class="dropdown-item" href="{{ route('profile') }}"><i
                                     class="mdi mdi mdi-face-man font-size-16 align-middle me-1"></i> Profile</a>
                             <!--<a class="dropdown-item" href="auth-lock-screen.html"><i-->
                             <!--        class="mdi mdi-lock font-size-16 align-middle me-1"></i> Lock Screen</a>-->
@@ -406,11 +422,6 @@
                                 <span data-key="t-dashboard">Dashboard</span>
                             </a>
                         </li>
-                       
-
-
-
-
 
                         <li class="d-none">
                             <a href="javascript:%20void(0);" class="has-arrow">
@@ -500,12 +511,24 @@
                                 <span data-key="t-dashboard">Experts</span>
                             </a>
                         </li>
-                         <li>
+                        <li>
                             <a href="javascript:%20void(0);" class="has-arrow">
                                 <i class="fi fi-rs-list"></i>
                                 <span data-key="t-tables">Master Data</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
+                                <li>
+                                    <a href="{{ route('services.index') }}">
+                                        <i class="fas fa-certificate"></i>
+                                        <span data-key="t-dashboard">Services</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('category.index') }}">
+                                        <i class="fas fa-certificate"></i>
+                                        <span data-key="t-dashboard">Category</span>
+                                    </a>
+                                </li>
                                 <li>
                                     <a href="{{ route('category.index') }}">
                                         <i class="fas fa-certificate"></i>
@@ -518,7 +541,7 @@
                                         <span data-key="t-dashboard">Sub Category</span>
                                     </a>
                                 </li>
-                             
+
                                 <li>
                                     <a href="{{ route('postname.index') }}">
                                         <i class="fas fa-cookie"></i>
@@ -529,25 +552,25 @@
                         </li>
                         <li>
                             <a href="{{ route('subscription.index') }}">
-                               <i class="fi fi-rs-book-alt"></i>
+                                <i class="fi fi-rs-book-alt"></i>
                                 <span data-key="t-dashboard">Subscription</span>
                             </a>
                         </li>
                         <li>
                             <a href="{{ route('blog.index') }}">
-                               <i class="fi fi-rs-book-alt"></i>
+                                <i class="fi fi-rs-book-alt"></i>
                                 <span data-key="t-dashboard">Blogs</span>
                             </a>
                         </li>
                         <li>
                             <a href="{{ route('video.index') }}">
-                               <i class="fi fi-rs-film"></i>
+                                <i class="fi fi-rs-film"></i>
                                 <span data-key="t-dashboard">Videos</span>
                             </a>
                         </li>
                         <li>
                             <a href="{{ route('gallery.create') }}">
-                               <i class="fi fi-rs-film"></i>
+                                <i class="fi fi-rs-film"></i>
                                 <span data-key="t-dashboard">Gallery</span>
                             </a>
                         </li>
@@ -602,7 +625,7 @@
     <script src="{{ url('public/js/node-waves-waves.min.js') }}"></script>
     <script src="{{ url('public/js/feather-icons-feather.min.js') }}"></script>
     <!-- pace js -->
-    
+
     <script src="{{ url('public/js/pace-js-pace.min.js') }}"></script>
 
 
