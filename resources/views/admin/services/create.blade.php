@@ -11,8 +11,8 @@
                             <label for="">Category</label>
                             <select class="form-select" name="category_id">
                                 <option value="">---Select---</option>
-                                @foreach($categories as $cat)
-                                    <option value="{{$cat['id']}}">{{$cat['category']}}</option>
+                                @foreach ($categories as $cat)
+                                    <option value="{{ $cat['id'] }}">{{ $cat['category'] }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -37,6 +37,20 @@
                                 <input type="text" value="{{ old('title') }}" name="title" id="title"
                                     class="form-control">
                             </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="">
+                                Enter Service Meta Title
+                            </label>
+                            <input type="text" value="{{ old('meta_title') }}" name="meta_title" id="meta_title"
+                                class="form-control">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="">
+                                Enter Service Meta Description
+                            </label>
+                            <input type="text" value="{{ old('meta_description') }}" name="meta_description"
+                                id="meta_description" class="form-control">
                         </div>
                         <div class="col-md-12">
                             <label for="">

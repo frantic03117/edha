@@ -57,9 +57,10 @@ class ServiceController extends Controller
             $filename = null;
         }
         $data = [
-
             'title' => $request->title,
             'url' => $url,
+            'meta_description' => $request->meta_description,
+            'meta_title' => $request->meta_title,
             'description' => $request->description,
             'key_points' => $request->key_points,
             'image' => $filename,
@@ -79,7 +80,7 @@ class ServiceController extends Controller
      */
     public function show(Service $service)
     {
-      //
+        //
     }
 
     /**
@@ -90,11 +91,11 @@ class ServiceController extends Controller
      */
     public function edit(Service $service)
     {
-        
-          $title = 'Edit Service';
+
+        $title = 'Edit Service';
         $res = compact('service', 'title');
-         $res['categories'] = Category::all();
-       
+        $res['categories'] = Category::all();
+
         return view('admin.services.edit', $res);
     }
 
@@ -120,9 +121,10 @@ class ServiceController extends Controller
             $filename = $request->hfile;
         }
         $data = [
-
             'title' => $request->title,
             'url' => $url,
+            'meta_description' => $request->meta_description,
+            'meta_title' => $request->meta_title,
             'description' => $request->description,
             'key_points' => $request->key_points,
             'image' => $filename,
