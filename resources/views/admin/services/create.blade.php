@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-md-12 mb-5">
                     <div class="w-100 text-end">
-                        <a class="btn btn-success" href="{{route('services.index')}}">Back</a>
+                        <a class="btn btn-success" href="{{ route('services.index') }}">Back</a>
                     </div>
                 </div>
                 <form action="{{ route('services.store') }}" enctype="multipart/form-data" method="post"
@@ -17,20 +17,24 @@
                             <select onchange="getsubcategories(event)" class="form-select" name="category_id">
                                 <option value="">---Select---</option>
                                 @foreach ($categories as $cat)
-                                    <option value="{{ $cat['id'] }}">{{ $cat['category'] }}</option>
+                                    @if ($cat['id'] == 1)
+                                        <option value="{{ $cat['id'] }}">{{ $cat['category'] }}</option>
+                                    @endif
                                 @endforeach
                             </select>
                         </div>
                         <div class="col-md-4">
                             <label for="">Sub Category</label>
-                            <select name="sub_category_id" class="form-select" id="sub_categories" >
+                            <select name="sub_category_id" class="form-select" id="sub_categories">
                                 <option value="">---Select---</option>
                             </select>
                         </div>
                         <script>
                             const getsubcategories = (e) => {
                                 const value = e.target.value;
-                                const resp = $.get("{{route('get_sub_category')}}", {id : value}, function(res){
+                                const resp = $.get("{{ route('get_sub_category') }}", {
+                                    id: value
+                                }, function(res) {
                                     $("#sub_categories").html(res);
                                 });
                             };
