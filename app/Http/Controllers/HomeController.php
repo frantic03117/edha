@@ -701,7 +701,6 @@ class HomeController extends Controller
         $res['socials'] = ContactDetail::where('type', 'social')->get();
         // $res['title'] = 'Counselling';
         $res['slug'] = $request->slug ?? 'counselling';
-
         $found = Service::where([['category_id', '=', '1'], ['url', '=', $request->slug ?? 'counselling']])->get();
         if(count($found) > 0){
             $res['items'] = $found;
