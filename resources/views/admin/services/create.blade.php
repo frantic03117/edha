@@ -17,6 +17,12 @@
                             </select>
                         </div>
                         <div class="col-md-4">
+                            <label for="">Sub Category</label>
+                            <select name="" id="">
+                                <option value="">---Select---</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
 
                             @csrf
                             <div class="form-group mb-3">
