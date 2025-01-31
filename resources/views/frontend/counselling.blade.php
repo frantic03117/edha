@@ -1,9 +1,8 @@
 @extends('frontend.main')
 @section('meta')
     <?php
-    $pageTitle = 'Experienced Mental Health Therapist & Psychologist Near You | Online Counseling Services';
-    $pageDescription = 'Find expert mental health therapy and counseling services near you. Connect with a qualified psychologist for personalized online counseling sessions to address your mental health needs effectively.';
-
+    $pageTitle = $items[0]->meta_title ??  'Experienced Mental Health Therapist & Psychologist Near You | Online Counseling Services';
+    $pageDescription =  $items[0]->meta_description ?? 'Find expert mental health therapy and counseling services near you. Connect with a qualified psychologist for personalized online counseling sessions to address your mental health needs effectively.';
     switch ($slug) {
         case 'anger':
             $pageTitle = 'Anger Management | Anger Management Techniques | EDHA';
