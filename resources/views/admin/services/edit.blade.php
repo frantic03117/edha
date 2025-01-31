@@ -16,7 +16,7 @@
                     <div class="row">
                         <div class="col-md-4">
                             <label for="">Category</label>
-                            <select class="form-select" name="category_id">
+                            <select onchange="getsubcategories(event)" class="form-select" name="category_id">
                                 <option value="">---Select---</option>
                                 @foreach ($categories as $cat)
                                     <option value="{{ $cat['id'] }}" @selected($cat['id'] == $service['category_id'])>{{ $cat['category'] }}
@@ -24,6 +24,23 @@
                                 @endforeach
                             </select>
                         </div>
+                        <div class="col-md-4">
+                            <label for="">Sub Category</label>
+                            <select name="sub_category_id" class="form-select" id="sub_categories" >
+                                <option value="">---Select---</option>
+                                @foreach ($sub_categories as $item)
+                                    <option value="{{$item->id}}" {{$item->id == $service['sub_category_id'] ? 'selected' : ''}}>{{$item->sub_category}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <script>
+                            const getsubcategories = (e) => {
+                                const value = e.target.value;
+                                const resp = $.get("{{route('get_sub_category')}}", {id : value}, function(res){
+                                    $("#sub_categories").html(res);
+                                });
+                            };
+                        </script>
                         <div class="col-md-4">
                             @csrf
                             @method('PUT')
@@ -35,9 +52,8 @@
                                 <img src="{{ url('public/assets/img/' . $service['image']) }}" class="img-fluid" />
                                 <input type="hidden" name="hfile" value="{{ $service['image'] }}" />
                             </div>
-
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-4 d-none">
                             <div class="form-group mb-3">
                                 <label for="">
                                     Enter Service Title

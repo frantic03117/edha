@@ -109,7 +109,7 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
 
 Route::prefix('export')->middleware(['auth'])->group(function () {
     Route::get('sessions', [ExportController::class, 'sessions'])->name('export.sessions');
-    
+
 });
 Route::prefix('expert')->middleware(['auth', 'isExpert'])->group(function () {
     Route::get('dashboard', [ExpertController::class, 'dashboard'])->name('expert.dashboard');
@@ -135,7 +135,7 @@ Route::prefix('expert')->middleware(['auth', 'isExpert'])->group(function () {
     Route::get('/profile', [ExpertController::class, 'profile'])->name('expert_profile');
     Route::get('/account-close', [ExpertController::class, 'account_close'])->name('account_close');
     Route::post('/account-close', [ExpertController::class, 'save_close_account'])->name('save_close_account');
- 
+
 });
 Route::post('expert/slot-delete', [SlotController::class, 'destroy']);
 Route::middleware('auth')->group(function () {
@@ -159,7 +159,7 @@ Route::prefix('user')->middleware(['auth', 'isUser'])->group(function () {
     Route::get('mypayments', [UserController::class, 'mypayments'])->name('mypayments');
 });
 Route::prefix('ajax')->middleware('auth')->group(function () {
-    Route::post('get_sub_category', [AjaxController::class, 'get_sub_category']);
+    Route::any('get_sub_category', [AjaxController::class, 'get_sub_category'])->name('get_sub_category');
     Route::post('get_events', [AjaxController::class, 'get_events']);
     Route::post('get_payment_details', [AjaxController::class, 'get_payment_details']);
     Route::post('lead/assign', [ExpertController::class, 'assign_lead'])->name('assign_lead');
@@ -203,11 +203,11 @@ Route::get('subscribe', [HomeController::class, 'subscribe_show']);
 Route::get('expert-thank-you', [HomeController::class, 'expert_fill_thank_you'])->name('expert.thankyou');
 Route::get('gallery', [GalleryController::class, 'index']);
 Route::get('counselling/{slug?}', [HomeController::class, 'counselling']);
-Route::get('coaching', [HomeController::class, 'coaching']);
+Route::get('coaching/{slug?}', [HomeController::class, 'coaching']);
 Route::get('counsellers', [HomeController::class, 'counsellers']);
 Route::post('counselling-contact-Us', [HomeController::class, 'contactUs'])->name('contactForm');
 Route::get('coaches', [HomeController::class, 'coaches']);
-Route::get('self-help', [HomeController::class, 'self_heleper']);
+Route::get('self-help/{slug?}', [HomeController::class, 'self_heleper']);
 Route::get('contact-us', [HomeController::class, 'contact']);
 Route::get('blogs', [HomeController::class, 'blogs']);
 Route::get('blogs', [HomeController::class, 'blogs']);

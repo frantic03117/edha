@@ -53,7 +53,7 @@ class HomeController extends Controller
 
         date_default_timezone_set('Asia/kolkata');
         Session::regenerate();
-       
+
         // echo $resp;
         // die;
         $res['videos'] = Video::orderBy('id', 'DESC')->limit(3)->get();
@@ -269,7 +269,7 @@ class HomeController extends Controller
         $res['message'] = '<h4>Thank you for subscribing.</h4>';
         return view('frontend.thankyou', $res);
     }
-   
+
     public function expert_fill_thank_you()
     {
         $res['title'] = 'Thank you';
@@ -702,7 +702,12 @@ class HomeController extends Controller
         // $res['title'] = 'Counselling';
         $res['slug'] = $request->slug ?? 'counselling';
 
-        $res['items'] = Service::where([['category_id', '=', '1'], ['url', '=', $request->slug ?? 'counselling']])->get();
+        $found = Service::where([['category_id', '=', '1'], ['url', '=', $request->slug ?? 'counselling']])->get();
+        if(count($found) > 0){
+            $res['items'] = $found;
+        }else{
+            $res['items'] = Service::where([['category_id', '=', '1'], ['url', '=',  'counselling']])->get();
+        }
         return view('frontend.counselling', $res);
     }
     public function coaching()
@@ -906,7 +911,7 @@ class HomeController extends Controller
             }else{
                   return response()->json(['success' => '0', 'errors' => []]);
             }
-           
+
         } else {
             return response()->json(['success' => '0', 'errors' => []]);
         }
@@ -928,10 +933,10 @@ class HomeController extends Controller
         ];
         MobileOtp::where(['mobile' => $request->mobile, 'is_verified' => '0'])->delete();
         MobileOtp::insert($data);
-        
+
          $msg = "Hello, {$otp} is the OTP to verify your mobile number at Edha website. Please do not share this with anyone.";
         $resp = $this->send_sms('91'.$mobile, $msg);
-       
+
         return response()->json(['success' => '1', 'errors' => [], 'data' => $resp]);
     }
     public function verify_otp(Request $request)
