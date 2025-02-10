@@ -92,7 +92,7 @@
                     <h4 class="text-warning">
                         Why choose edha ?
                     </h4>
-                     @include('frontend.why_edha')
+                    @include('frontend.why_edha')
                     <h5 class="main-para text-primary">One of Bharat’s largest professional services platform</h5>
                     <div class="text-primary d-flex gap-2 flex-wrap justify-content-center featuresspan position-relative">
                         <span>
@@ -344,7 +344,7 @@
                 <div class="col-md-12">
                     <div class="section-title text-center">
                         <h3 class="text-warning">
-                            Edha offers  counseling services for
+                            Edha offers counseling services for
                         </h3>
                     </div>
                 </div>
@@ -766,7 +766,8 @@
                                         Experts from their Field
                                     </h5>
                                     <p class="mb-0">
-                                      Edha support is rendered by experienced professionals from their respective fields, who can easily assist you with your areas of concern.
+                                        Edha support is rendered by experienced professionals from their respective fields,
+                                        who can easily assist you with your areas of concern.
                                     </p>
                                 </div>
                             </div>
@@ -781,10 +782,11 @@
                             <div class="col-md-11 col-9">
                                 <div class="w-100">
                                     <h5>
-                                       Ease to get connected
+                                        Ease to get connected
                                     </h5>
                                     <p class="mb-0">
-                                      Edha platform helps you get connected basis your requirement for Counselling, Coaching, and other professional services, with ease.  
+                                        Edha platform helps you get connected basis your requirement for Counselling,
+                                        Coaching, and other professional services, with ease.
                                     </p>
                                 </div>
                             </div>
@@ -799,10 +801,12 @@
                             <div class="col-md-11 col-9">
                                 <div class="w-100">
                                     <h5>
-                                       Our Culture
+                                        Our Culture
                                     </h5>
                                     <p class="mb-0">
-                                     Respect for all, kindness, integrity, values and principles, work ethics, and an open mind to listen, understand, and assist Our Clients are our ways of working at Edha.
+                                        Respect for all, kindness, integrity, values and principles, work ethics, and an
+                                        open mind to listen, understand, and assist Our Clients are our ways of working at
+                                        Edha.
                                     </p>
                                 </div>
                             </div>
@@ -1089,9 +1093,11 @@
     </script>
 @endsection
 @section('meta')
-    <meta name="title" content="Online Counseling for Mental Health | Therapist & Psychologist">
+    <meta name="title" content="Edha for Expert Counseling, Coaching, and Holistic Well-being Services">
     <meta name="keywords"
-        content="Counsellors, Psychologists, and Therapists for anxiety, stress, depression, PTSD, relationship concerns, marriage-related, lifestyle, parenting, motherhood-related, Mental Health Therapist  ">
+        content="depression counseling, career counseling, Counsellors, Psychologists, and Therapists for anxiety, stress, depression, PTSD, relationship concerns, marriage-related, lifestyle, parenting, motherhood-related, Mental Health Therapist  ">
     <meta name="description"
-        content="Explore the ease and accessibility of online mental health counseling services. Connect with a mental health therapist for professional guidance and support.">
+        content="Discover Edha, your trusted platform for mental and emotional well-being. Access expert counseling, life
+coaching, and holistic practices like yoga, meditation, and healing. Start your journey to a balanced life
+today.">
 @endsection

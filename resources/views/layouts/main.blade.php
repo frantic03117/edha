@@ -59,6 +59,15 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     @yield('script')
     <style>
+        .cke_notification_warning,
+        .cke_notifications_area,
+        #cke_notifications_area_keypoints {
+            display: none !important;
+            opacity: 0 !important;
+            position: absolute !important;
+
+        }
+
         .navbar-brand-box {
             background-color: #077773 !important;
             -webkit-box-shadow: 0 1px 0 #077773 !important;

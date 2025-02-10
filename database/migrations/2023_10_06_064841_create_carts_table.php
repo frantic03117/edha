@@ -29,8 +29,6 @@ return new class extends Migration
             $table->date('apt_date');
             $table->date('slot_id');
             $table->integer('quantity');
-
-
             $table->timestamps();
         });
     }

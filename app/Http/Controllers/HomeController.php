@@ -123,7 +123,7 @@ class HomeController extends Controller
                     $b->select('id')->from('languages')->whereIn('language', $langs);
                 });
             });
-            $items->with(['expertize' => function($query){
+            $items->with(['expertize' => function ($query) {
                 $query->where('category_id', '1');
             }])->with('fee')
                 ->where('is_verified', '1')
@@ -187,56 +187,69 @@ class HomeController extends Controller
             return redirect()->to('find-expert');
         }
     }
-    public function self_heleper()
+    public function self_heleper(Request $request)
     {
-        $sid = Session::getId();
-        $check = FindExpert::where('session_id', $sid)->first();
-        if ($check) {
-            if ($check['category_id'] == '3') {
-                $langs = explode(',', $check['languages']);
-                $scats = json_decode($check['sub_cats']);
-                $sids = [];
-                foreach ($scats as $cat) {
-                    array_push($sids, $cat->id);
-                }
-                $res['socials'] = ContactDetail::where('type', 'social')->get();
-                $res['policies'] = Policy::all();
+        // $sid = Session::getId();
+        // $check = FindExpert::where('session_id', $sid)->first();
+        // if ($check) {
+        //     if ($check['category_id'] == '3') {
+        //         $langs = explode(',', $check['languages']);
+        //         $scats = json_decode($check['sub_cats']);
+        //         $sids = [];
+        //         foreach ($scats as $cat) {
+        //             array_push($sids, $cat->id);
+        //         }
+        //         $res['socials'] = ContactDetail::where('type', 'social')->get();
+        //         $res['policies'] = Policy::all();
 
-                $res['title'] = 'Talk to Self Help Team';
-                $items = Expert::whereIn('experts.id', function ($q) {
-                    $q->from('expert_categories')->where('category_id', '2')->select('expert_id');
-                })
-                    ->where('is_active', '1')
-                    ->where('is_verified', '1')->with('state:id,state')
-                    ->with('city:id,city')->with('expertize:id,sub_category')
-                    ->join('posts', 'posts.id', '=', 'experts.post_id', 'left')
-                    ->with('postname')
-                    ->with('fee')->orderBy('id', 'DESC')
-                    ->select(['experts.id', 'experts.url', 'name', 'languages', 'custom_postname', 'modes', 'profile_image', 'designation', 'qualification', 'experience', 'state_id', 'city_id', 'posts.post']);
+        //         $res['title'] = 'Talk to Self Help Team';
+        //         $items = Expert::whereIn('experts.id', function ($q) {
+        //             $q->from('expert_categories')->where('category_id', '2')->select('expert_id');
+        //         })
+        //             ->where('is_active', '1')
+        //             ->where('is_verified', '1')->with('state:id,state')
+        //             ->with('city:id,city')->with('expertize:id,sub_category')
+        //             ->join('posts', 'posts.id', '=', 'experts.post_id', 'left')
+        //             ->with('postname')
+        //             ->with('fee')->orderBy('id', 'DESC')
+        //             ->select(['experts.id', 'experts.url', 'name', 'languages', 'custom_postname', 'modes', 'profile_image', 'designation', 'qualification', 'experience', 'state_id', 'city_id', 'posts.post']);
 
-                // $items->whereIn('experts.id', function($q) use ($sids){
-                //     $q->select('expert_id')->from('expert_sub_categories')->whereIn('sub_category_id', $sids);
-                // });
+        //         // $items->whereIn('experts.id', function($q) use ($sids){
+        //         //     $q->select('expert_id')->from('expert_sub_categories')->whereIn('sub_category_id', $sids);
+        //         // });
 
-                $items->whereIn('experts.id', function ($q) use ($langs) {
-                    $q->select('expert_id')->from('expert_languages')->whereIn('language_id', function ($b) use ($langs) {
-                        $b->select('id')->from('languages')->whereIn('language', $langs);
-                    });
-                });
-                // echo json_encode($res['items']);
-                // die;
-                $res['items'] = $items->get();
-                $lead = Lead::where('search_id', $check->id)->first();
-                $res['lead_id'] = $lead->id;
-                return view('frontend.coaches-1', $res);
-            } else if ($check['category_id'] == '1') {
-                return redirect()->to('counsellers');
-            } else if ($check['category_id'] == '2') {
-                return redirect()->to('coaches');
-            }
+        //         $items->whereIn('experts.id', function ($q) use ($langs) {
+        //             $q->select('expert_id')->from('expert_languages')->whereIn('language_id', function ($b) use ($langs) {
+        //                 $b->select('id')->from('languages')->whereIn('language', $langs);
+        //             });
+        //         });
+        //         // echo json_encode($res['items']);
+        //         // die;
+        //         $res['items'] = $items->get();
+        //         $lead = Lead::where('search_id', $check->id)->first();
+        //         $res['lead_id'] = $lead->id;
+        //         return view('frontend.coaches-1', $res);
+        //     } else if ($check['category_id'] == '1') {
+        //         return redirect()->to('counsellers');
+        //     } else if ($check['category_id'] == '2') {
+        //         return redirect()->to('coaches');
+        //     }
+        // } else {
+        //     return redirect()->to('find-expert');
+        // }
+        $res['policies'] = Policy::all();
+        $res['socials'] = ContactDetail::where('type', 'social')->get();
+        // $res['title'] = 'Counselling';
+        $res['slug'] = $request->slug ?? 'counselling';
+        // echo $request->slug;
+        // die;
+        $found = Service::where([['category_id', '=', '3'], ['url', '=', $request->slug ?? 'counselling']])->get();
+        if (count($found) > 0) {
+            $res['items'] = $found;
         } else {
-            return redirect()->to('find-expert');
+            $res['items'] = Service::where([['category_id', '=', '1'], ['url', '=',  'counselling']])->get();
         }
+        return view('frontend.counselling', $res);
     }
     public function test()
     {
@@ -702,9 +715,9 @@ class HomeController extends Controller
         // $res['title'] = 'Counselling';
         $res['slug'] = $request->slug ?? 'counselling';
         $found = Service::where([['category_id', '=', '1'], ['url', '=', $request->slug ?? 'counselling']])->get();
-        if(count($found) > 0){
+        if (count($found) > 0) {
             $res['items'] = $found;
-        }else{
+        } else {
             $res['items'] = Service::where([['category_id', '=', '1'], ['url', '=',  'counselling']])->get();
         }
         return view('frontend.counselling', $res);
@@ -898,19 +911,18 @@ class HomeController extends Controller
                 ExpertPoint::insert($data);
                 $city = $lead['search_data']?->city_name?->city;
                 $state =  $lead['search_data']?->state_name?->state;
-                $subj = $lead['name'].' is looking for '.$categery['category'].' in '.$city.' , '.$state;
+                $subj = $lead['name'] . ' is looking for ' . $categery['category'] . ' in ' . $city . ' , ' . $state;
                 $mailData = [
                     'subject' => $subj,
                     'body' => $lead,
                     'charges' => $charges
                 ];
                 $email = $expert['email'];
-              $resps =   Mail::to($email)->send(new ServiceQuery($mailData));
-               return response()->json(['success' => '1', 'errors' => [], 'data' => $resps]);
-            }else{
-                  return response()->json(['success' => '0', 'errors' => []]);
+                $resps =   Mail::to($email)->send(new ServiceQuery($mailData));
+                return response()->json(['success' => '1', 'errors' => [], 'data' => $resps]);
+            } else {
+                return response()->json(['success' => '0', 'errors' => []]);
             }
-
         } else {
             return response()->json(['success' => '0', 'errors' => []]);
         }
@@ -921,7 +933,7 @@ class HomeController extends Controller
         $request->validate([
             'mobile' => 'required|min:10|max:10'
         ]);
-         $otp = rand(1111, 9999);
+        $otp = rand(1111, 9999);
         //$otp = 8888;
         $mobile = $request->mobile;
         $data = [
@@ -933,8 +945,8 @@ class HomeController extends Controller
         MobileOtp::where(['mobile' => $request->mobile, 'is_verified' => '0'])->delete();
         MobileOtp::insert($data);
 
-         $msg = "Hello, {$otp} is the OTP to verify your mobile number at Edha website. Please do not share this with anyone.";
-        $resp = $this->send_sms('91'.$mobile, $msg);
+        $msg = "Hello, {$otp} is the OTP to verify your mobile number at Edha website. Please do not share this with anyone.";
+        $resp = $this->send_sms('91' . $mobile, $msg);
 
         return response()->json(['success' => '1', 'errors' => [], 'data' => $resp]);
     }

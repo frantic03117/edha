@@ -17,9 +17,7 @@
                             <select onchange="getsubcategories(event)" class="form-select" name="category_id">
                                 <option value="">---Select---</option>
                                 @foreach ($categories as $cat)
-                                    @if ($cat['id'] == 1)
-                                        <option value="{{ $cat['id'] }}">{{ $cat['category'] }}</option>
-                                    @endif
+                                    <option value="{{ $cat['id'] }}">{{ $cat['category'] }}</option>
                                 @endforeach
                             </select>
                         </div>

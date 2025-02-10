@@ -46,11 +46,9 @@
     @yield('script')
     @yield('meta')
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Online Counselling for Mental Health | Therapist & Psychologist</title>
+    <title>Edha for Expert Counseling, Coaching, and Holistic Well-being Services</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!--<meta name="description"-->
-    <!--    content="Edha is a mental health platform, designed to facilitate mental and emotional well-being. At Edha, we offer online Counselling and therapy for anxiety, stress, depression, ADHD, OCD, relationship concerns, marriage related, lifestyle, parenting, motherhood related and other concerns through Counsellors, Psychologists, Therapists and experts from the field.">-->
     <link rel="apple-touch-icon" sizes="180x180" href="{{ url('public/favicons') }}/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ url('public/favicons') }}/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ url('public/favicons') }}/favicon-16x16.png">
@@ -303,7 +301,7 @@
                                                                 <ul class="dropdown-menu dropdown-submenu bg-warning">
                                                                     @foreach ($s['endcategory'] as $es)
                                                                         <li><a class="dropdown-item text-primary"
-                                                                                href="{{ url($item['url']) . __($item['url'] == 'counselling' ? '/' : '#') . $s['url'] }}">{{ $es['end_category'] }}</a>
+                                                                                href="{{ url($item['url'] . __('/') . $s['url']) }}">{{ $es['end_category'] }}</a>
                                                                         </li>
                                                                     @endforeach
                                                                 </ul>

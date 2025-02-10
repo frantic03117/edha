@@ -26,6 +26,7 @@ use App\Http\Controllers\CronjobController;
 use App\Http\Controllers\PusherController;
 use App\Http\Controllers\VideoController;
 use App\Http\Controllers\PlanController;
+use App\Http\Controllers\SitemapController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -109,7 +110,6 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
 
 Route::prefix('export')->middleware(['auth'])->group(function () {
     Route::get('sessions', [ExportController::class, 'sessions'])->name('export.sessions');
-
 });
 Route::prefix('expert')->middleware(['auth', 'isExpert'])->group(function () {
     Route::get('dashboard', [ExpertController::class, 'dashboard'])->name('expert.dashboard');
@@ -135,7 +135,6 @@ Route::prefix('expert')->middleware(['auth', 'isExpert'])->group(function () {
     Route::get('/profile', [ExpertController::class, 'profile'])->name('expert_profile');
     Route::get('/account-close', [ExpertController::class, 'account_close'])->name('account_close');
     Route::post('/account-close', [ExpertController::class, 'save_close_account'])->name('save_close_account');
-
 });
 Route::post('expert/slot-delete', [SlotController::class, 'destroy']);
 Route::middleware('auth')->group(function () {
@@ -253,3 +252,5 @@ Route::post('join-request/create/{id}', [AdminController::class, 'join_request_s
 Route::get('/leads', [ExpertController::class, 'leads'])->name('leads');
 Route::get('/unconfirm-leads', [ExpertController::class, 'unconfirm_leads'])->name('unconfirm-leads');
 Route::post('/review', [ExpertController::class, 'save_reivew'])->name('review.store');
+
+Route::get('sitemap.xml', [SitemapController::class, 'index']);

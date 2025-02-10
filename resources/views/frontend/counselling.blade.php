@@ -1,63 +1,7 @@
 @extends('frontend.main')
 @section('meta')
-    <?php
-    $pageTitle = $items[0]->meta_title ??  'Experienced Mental Health Therapist & Psychologist Near You | Online Counseling Services';
-    $pageDescription =  $items[0]->meta_description ?? 'Find expert mental health therapy and counseling services near you. Connect with a qualified psychologist for personalized online counseling sessions to address your mental health needs effectively.';
-    switch ($slug) {
-        case 'anger':
-            $pageTitle = 'Anger Management | Anger Management Techniques | EDHA';
-            $pageDescription = 'EDHA offers counseling services specifically designed to help individuals manage and reduce anger. We helps individuals understand the root causes of their anger and develop healthier responses.';
-            break;
-        case 'stress-anxiety-depression':
-            $pageTitle = 'Online Counsellor for Depression & Anxiety | Stress Management';
-            $pageDescription = 'Discover expert solutions for stress management and anxiety treatment with online counseling for depression. Get personalized support from qualified counselors. Start your journey towards inner peace today.';
-            break;
-        case 'relationship':
-            $pageTitle = 'Relationship Issues Counseling | Counseling for Toxic Relationship';
-            $pageDescription = 'If you&#39;re seeking counseling for relationship issues or dealing with a toxic relationship, EDHA provides professional guidance and support to help individuals navigate these challenging situations.';
-            break;
-        case 'marriage':
-            $pageTitle = 'Marriage Counseling | Isolation | EDHA';
-            $pageDescription = 'EDHA offers comprehensive marriage counseling to help couples address issues of isolation and disconnection, which can strain their relationship.';
-            break;
-        case 'trauma':
-            $pageTitle = 'Overcoming Fear | Overcoming Phobia | EDHA';
-            $pageDescription = 'EDHA offers expert counseling services for individuals looking to overcome fear and phobias. Fear and phobias can deeply affect a person’s quality of life, limiting activities and causing anxiety.';
-            break;
-        case 'motherhood-challenges':
-            $pageTitle = 'Counseling for Postpartum Depression| EDHA';
-            $pageDescription = 'EDHA provides specialized counseling services for individuals experiencing postpartum depression, a condition that can affect new parents, particularly mothers, after childbirth.';
-            break;
-        case 'lifestyle-issues':
-            $pageTitle = 'Mid Life Crisis | Sexual Wellness| EDHA';
-            $pageDescription = 'EDHA provides expert counseling for individuals navigating a mid-life crisis, particularly those experiencing challenges related to sexual wellness.';
-            break;
-        case 'parenting':
-            $pageTitle = 'Separation Anxiety | Single Parents | EDHA';
-            $pageDescription = 'EDHA offers specialized counseling for individuals dealing with separation anxiety, particularly for single parents facing the emotional challenges of being apart from their children.';
-            break;
-        case 'child-adolescent':
-            $pageTitle = 'Identity Crisis | ADHD | Bullying | EDHA';
-            $pageDescription = 'EDHA offers specialized counseling for children and adolescents facing challenges like identity crisis, ADHD, and the effects of bullying.';
-            break;
-        case 'obsessive-compulsive-disorder':
-            $pageTitle = 'Understanding Obsessive-Compulsive Disorder: Symptoms, Causes & Treatment';
-            $pageDescription = 'Dive into the complexities of Obsessive-Compulsive Disorder (OCD), exploring its symptoms, causes, and effective treatment options. Get comprehensive insights here.';
-            break;
-        case 'counselling':
-            $pageTitle = 'Career Counseling | Depression Counseling | EDHA';
-            $pageDescription = 'EDHA provides expert career counseling and depression counseling to individuals seeking guidance in navigating their professional life and emotional well-being.';
-            break;
-        case 'counselling':
-            $pageTitle = 'Career Counseling | Depression Counseling | EDHA';
-            $pageDescription = 'EDHA provides expert career counseling and depression counseling to individuals seeking guidance in navigating their professional life and emotional well-being.';
-            break;
-    }
-
-    echo "<meta name='title' content='$pageTitle'>";
-    echo "<title>$pageTitle</title>";
-    echo "<meta name='description' content='$pageDescription'>";
-    ?>
+    <title>{{ $items[0]->meta_title }}</title>
+    <meta name='description' content='{{ $items[0]->meta_description }}' />
 @endsection
 @section('content')
     <style>
@@ -99,7 +43,7 @@
             color: white;
             /* display: inline-block; */
             /* margin-top: 20px;
-                        width: auto; */
+                            width: auto; */
 
         }
 

@@ -34,6 +34,7 @@ class ServiceController extends Controller
     {
         $res['title'] = 'Create Serivce';
         $res['categories'] = Category::all();
+        // return response()->json($res);
         return view('admin.services.create', $res);
     }
 
@@ -87,7 +88,6 @@ class ServiceController extends Controller
         } else {
             return redirect()->back()->with('error', 'Duplicate data');
         }
-
     }
 
     /**
