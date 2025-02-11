@@ -254,3 +254,4 @@ Route::get('/unconfirm-leads', [ExpertController::class, 'unconfirm_leads'])->na
 Route::post('/review', [ExpertController::class, 'save_reivew'])->name('review.store');
 
 Route::get('sitemap.xml', [SitemapController::class, 'index']);
+Route::get('sitemap.html', [SitemapController::class, 'htmlview']);

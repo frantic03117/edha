@@ -722,13 +722,21 @@ class HomeController extends Controller
         }
         return view('frontend.counselling', $res);
     }
-    public function coaching()
+    public function coaching($url)
     {
+
         $res['policies'] = Policy::all();
         $res['socials'] = ContactDetail::where('type', 'social')->get();
         $res['title'] = 'Counselling';
         $res['items'] = Service::where('category_id', '=', '2')->get();
-        return view('frontend.coaching', $res);
+        $res['slug'] = $request->slug ?? 'counselling';
+        $found = Service::where([['category_id', '=', '2'], ['url', '=', request()->slug]])->get();
+        if (count($found) > 0) {
+            $res['items'] = $found;
+            return view('frontend.counselling', $res);
+        } else {
+            return view('frontend.coaching', $res);
+        }
     }
     public function book_now($url)
     {
