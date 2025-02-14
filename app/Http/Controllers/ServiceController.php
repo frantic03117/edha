@@ -19,7 +19,7 @@ class ServiceController extends Controller
     public function index()
     {
         $res['title'] = 'List of Servies';
-        $res['items'] = Service::all();
+        $res['items'] = Service::with('category')->get();
         // return response()->json($res['items']);
         // die;
         return view('admin.services.index', $res);
@@ -172,6 +172,7 @@ class ServiceController extends Controller
      */
     public function destroy(Service $service)
     {
-        //
+        $service->delete();
+        return redirect()->back()->with('success', 'Deleted successfully');
     }
 }

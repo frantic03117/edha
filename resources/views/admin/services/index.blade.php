@@ -18,8 +18,9 @@
                             <tr>
                                 <th>Sr</th>
                                 <th>Thumbnail</th>
+                                <th>Category</th>
                                 <th>Title</th>
-                                
+
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -30,21 +31,27 @@
                                         {{ $loop->iteration }}
                                     </td>
                                     <td>
-                                        <img class="img-fluid" src="{{ url('public/assets/img/'.$item['image']) }}" width="200" />
+                                        {{ $item->category?->category }}
                                     </td>
                                     <td>
-                                        {{$item['title']}}
+                                        <img class="img-fluid" src="{{ url('public/assets/img/' . $item['image']) }}"
+                                            width="200" />
+                                    </td>
+                                    <td>
+                                        {{ $item['title'] }}
                                     </td>
 
                                     <td>
                                         <div class="d-flex align-items-center gap-2">
-                                            <!--<form id="deleteForm" action="{{ route('services.destroy', $item['id']) }}"-->
-                                            <!--    method="POST">-->
-                                            <!--    @csrf-->
-                                            <!--    @method('DELETE')-->
-                                            <!--    <button class="btn btn-sm btn-danger">Delete</button>-->
-                                            <!--</form>-->
-                                            <a href="{{ route('services.edit', $item['id']) }}" class="btn btn-primary btn-sm">
+                                            <form id="deleteForm" action="{{ route('services.destroy', $item['id']) }}"
+                                                method="POST"
+                                                onsubmit="return confirm('Are you sure you want to delete this service?');">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button class="btn btn-sm btn-danger">Delete</button>
+                                            </form>
+                                            <a href="{{ route('services.edit', $item['id']) }}"
+                                                class="btn btn-primary btn-sm">
                                                 Edit
                                             </a>
                                         </div>
@@ -55,14 +62,7 @@
                             @endforeach
                         </tbody>
                     </table>
-                    <script>
-                        $("#deleteForm").on('submit', function(e) {
-                            e.preventDefault();
-                            if (confirm('Are you sure ?')) {
-                                $("#deleteForm").submit();
-                            }
-                        })
-                    </script>
+
                 </div>
             </div>
         </div>
