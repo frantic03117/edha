@@ -703,7 +703,7 @@ class HomeController extends Controller
             'subject' => $subj,
             'lead_id' => $lead_id,
             'charge' => $charges,
-            'category' => $categery
+            'category' => $cid
         ];
         MailBody::insert($mailData);
 
