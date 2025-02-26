@@ -21,6 +21,7 @@ use App\Models\MobileOtp;
 use App\Models\Qualification;
 use App\Models\Service;
 use App\Models\State;
+use App\Models\MailBody;
 use App\Models\User;
 use App\Models\ExpertFee;
 use App\Models\Package;
@@ -664,11 +665,7 @@ class HomeController extends Controller
         ]);
         $cid = $request->category_id;
         $sids = $request->subcats;
-
         $subcats = SubCategory::whereIn('id', $sids)->select(['sub_category', 'id'])->get();
-
-
-
         $data = [
             'for_me' => $request->is_for_me,
             'for_whome' => $request->for_whome,
@@ -693,7 +690,39 @@ class HomeController extends Controller
             'search_id' => $fid,
             'created_at' => date('Y-m-d H:i:s')
         ];
-        Lead::insert($udata);
+        $lead_id = Lead::insertGetId($udata);
+
+        $lead = Lead::where('id', $lead_id)->with('search_data')->first();
+        $categery = Category::where('id', $cid)->first();
+        $lead_charge =  LeadPrice::where('category_id', $cid)->first();
+        $charges = $lead_charge->points;
+        $city = $lead['search_data']?->city_name?->city;
+        $state =  $lead['search_data']?->state_name?->state;
+        $subj = $lead['name'] . ' is looking for ' . $categery['category'] . ' in ' . $city . ' , ' . $state;
+        $mailData = [
+            'subject' => $subj,
+            'lead_id' => $lead_id,
+            'charge' => $charges,
+            'category' => $categery
+        ];
+        MailBody::insert($mailData);
+
+
+
+
+
+
+        // $mailData = [
+        //     'subject' => $subj,
+        //     'body' => $lead,
+        //     'charges' => $charges
+        // ];
+        // $email = $expert['email'];
+        // $resps =   Mail::to($email)->send(new ServiceQuery($mailData));
+
+
+
+
         if ($cid == 1) {
             return redirect()->to('counsellers');
         } else if ($cid == 2) {

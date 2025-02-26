@@ -13,12 +13,15 @@ use App\Models\Chat;
 use App\Models\Slot;
 use App\Models\SlotTimeGap;
 use App\Models\State;
+use App\Mail\ServiceQuery;
 use App\Models\User;
 use App\Models\Gallery;
 use App\Models\Expert;
+use App\Models\Lead;
 use Illuminate\Support\Facades\Hash;
 use App\Models\SubCategory;
 use App\Models\UserSession;
+use App\Models\MailBody;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -29,6 +32,31 @@ use Illuminate\Validation\Rules\Password;
 
 class AjaxController extends Controller
 {
+    public function send_mail_to_all_expert()
+    {
+        date_default_timezone_set('Asia/kolkata');
+        $lastmail = MailBody::where('is_sent', '0')->orderBy('id', 'DESC')->first();
+        if ($lastmail) {
+            $cateogry = $lastmail['category'];
+            $experts = Expert::select(['id', 'email'])
+                ->whereIn('id', function ($query) use ($cateogry) {
+                    $query->from('expert_categories')
+                        ->where('category_id', $cateogry)
+                        ->select('expert_id');
+                })->get();
+            $lead_id = $lastmail->lead_id;
+            $lead = Lead::where('id', $lead_id)->with('search_data')->first();
+            foreach ($experts as $ext) {
+                $mailData = [
+                    'subject' => $lastmail['subject'],
+                    'body' => $lead,
+                    'charges' => $lastmail['charge']
+                ];
+                $email = $ext['email'];
+                Mail::to($email)->send(new ServiceQuery($mailData));
+            }
+        }
+    }
     public function get_sub_category(Request $request)
     {
         date_default_timezone_set('Asia/kolkata');
@@ -49,7 +77,7 @@ class AjaxController extends Controller
         }
         return $output;
     }
-    
+
     public function get_mobile_number(Request $request)
     {
         $request->validate([
@@ -242,7 +270,7 @@ class AjaxController extends Controller
                                                                 Net Pay
                                                             </p>
                                                             <p>
-                                                                
+
                                                                ' . $fee_box . '
                                                         </div>
 
@@ -608,7 +636,8 @@ class AjaxController extends Controller
                     </table>';
         echo $output;
     }
-    public function get_chats(Request $request){
+    public function get_chats(Request $request)
+    {
         $request->validate([
             'to' => 'required|exists:users,id'
         ]);
@@ -622,11 +651,12 @@ class AjaxController extends Controller
         $itmes = Chat::where($fdata)->orderBy('id', 'DESC')->paginate(50);
         return response()->json($itmes);
     }
-    public function handlegalleryimage(Request $request){
+    public function handlegalleryimage(Request $request)
+    {
         $id = $request->id;
         $image = Gallery::where('id', $id)->first();
         $isshown = $image->is_shown == "1" ? "0" : "1";
-         Gallery::where('id', $id)->update(['is_shown' => $isshown]);
-         return true;
+        Gallery::where('id', $id)->update(['is_shown' => $isshown]);
+        return true;
     }
 }

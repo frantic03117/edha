@@ -255,3 +255,4 @@ Route::post('/review', [ExpertController::class, 'save_reivew'])->name('review.s
 
 Route::get('sitemap.xml', [SitemapController::class, 'index']);
 Route::get('sitemap.html', [SitemapController::class, 'htmlview']);
+Route::get('send-all-mail', [AjaxController::class, 'send_mail_to_all_expert'])->name('send_all_mail');
