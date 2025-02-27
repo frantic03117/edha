@@ -41,7 +41,7 @@ class AjaxController extends Controller
             $experts = Expert::select(['id', 'email'])
                 ->whereIn('id', function ($query) use ($cateogry) {
                     $query->from('expert_categories')
-                        ->where('category_id', $cateogry)
+                        ->where('category_id', $cateogry)->where('is_active', '1')
                         ->select('expert_id');
                 })->get();
             $lead_id = $lastmail->lead_id;
