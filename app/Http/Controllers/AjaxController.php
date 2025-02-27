@@ -54,6 +54,7 @@ class AjaxController extends Controller
                 ];
                 $email = $ext['email'];
                 Mail::to($email)->send(new ServiceQuery($mailData));
+                MailBody::where('id', $lastmail['id'])->update(['is_sent' => '1']);
             }
         }
     }
