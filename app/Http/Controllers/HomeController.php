@@ -303,7 +303,7 @@ class HomeController extends Controller
         $res['socials'] = ContactDetail::where('type', 'social')->get();
         $res['policies'] = Policy::all();
 
-        $res['blogs'] = Blog::with('subcategory')->orderBy('id', 'DESC')->get();
+        $res['blogs'] = Blog::with('subcategory')->orderBy('id', 'DESC')->paginate(20);
         // echo "<pre>";
         // echo json_encode($res['blogs']);
         // die;
