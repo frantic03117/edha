@@ -102,7 +102,7 @@
                 @endforeach
                 <div class="col-md-12 mt-5">
                     <div class="w-100">
-                        {!! $item->links() !!}
+                        {!! $blogs->links() !!}
                     </div>
                 </div>
 
