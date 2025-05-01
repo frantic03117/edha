@@ -598,15 +598,15 @@
         const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
     </script>
 
-    {{-- <div class="whatsapp-container d-inline-flex flex-column gap-2">
-        <a target="_blank" title="Call us" href="tel:+91-8368623753">
+    <div class="whatsapp-container d-inline-flex flex-column gap-2">
+        {{-- <a target="_blank" title="Call us" href="tel:+91-8368623753">
             <img src="{{ url('public/assets/img/phone.png') }}" width="30" alt="WhatsApp Icon">
-        </a>
+        </a> --}}
         <a href="https://wa.link/8biq9h" target="_blank" title="Chat with us on WhatsApp"
             onclick="window.open(this.href,'_blank'); return false;">
             <img src="{{ url('public/assets/img/whatsapp.png') }}" alt="WhatsApp Icon">
         </a>
-    </div> --}}
+    </div>
     <a id="goTopButton"></a>
     <script>
         var btn = $('#goTopButton');
