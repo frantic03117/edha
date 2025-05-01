@@ -209,7 +209,7 @@ Route::get('coaches', [HomeController::class, 'coaches']);
 Route::get('self-help/{slug?}', [HomeController::class, 'self_heleper']);
 Route::get('contact-us', [HomeController::class, 'contact']);
 Route::get('blogs', [HomeController::class, 'blogs']);
-Route::get('blogs', [HomeController::class, 'blogs']);
+// Route::get('blogs', [HomeController::class, 'blogs']);
 Route::get('videos', [HomeController::class, 'videos']);
 Route::get('ask', [HomeController::class, 'ask']);
 Route::post('contact-us', [HomeController::class, 'save_ask']);
