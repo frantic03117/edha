@@ -100,6 +100,11 @@
                         </a>
                     </div>
                 @endforeach
+                <div class="col-md-12 mt-5">
+                    <div class="w-100">
+                        {!! $item->links() !!}
+                    </div>
+                </div>
 
 
                 <div class="col-md-4 d-none">
