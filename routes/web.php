@@ -213,7 +213,7 @@ Route::get('blogs', [HomeController::class, 'blogs']);
 Route::get('videos', [HomeController::class, 'videos']);
 Route::get('ask', [HomeController::class, 'ask']);
 Route::post('contact-us', [HomeController::class, 'save_ask']);
-Route::get('csr', [HomeController::class, 'csr']);
+Route::get('edha-foundation', [HomeController::class, 'csr']);
 Route::get('forgot-password', [HomeController::class, 'forgot_password']);
 Route::get('employee-engagement-programme', [HomeController::class, 'eep']);
 Route::get('mental-health-assessments', [HomeController::class, 'mental_health_assessments'])->name('mental_health_assessments');

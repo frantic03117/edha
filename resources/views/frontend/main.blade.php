@@ -349,7 +349,7 @@
                                                     <a class="dropdown-item" href="{{ url('contact-us') }}">Ask</a>
 
                                                 <li>
-                                                    <a class="dropdown-item" href="{{ url('csr') }}">edha
+                                                    <a class="dropdown-item" href="{{ url('edha-foundation') }}">edha
                                                         Foundation
                                                     </a>
                                                 </li>
