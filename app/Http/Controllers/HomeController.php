@@ -51,7 +51,11 @@ class HomeController extends Controller
     use MyTrait;
     public function index()
     {
-
+        // $mobile = "9084694815";
+        // $msg = "Hello, 1243 is the OTP to verify your mobile number at Edha website. Please do not share this with anyone.";
+        // $resp = $this->send_sms('91' . $mobile, $msg);
+        // echo $resp;
+        // die;
         date_default_timezone_set('Asia/kolkata');
         Session::regenerate();
 
