@@ -43,6 +43,7 @@
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
     </script>
 
+    <!-- Meta Pixel Code -->
     <script>
         ! function(f, b, e, v, n, t, s) {
             if (f.fbq) return;
@@ -63,6 +64,9 @@
         }(window, document, 'script',
             'https://connect.facebook.net/en_US/fbevents.js');
     </script>
+    <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=1887710252071110&ev=PageView&noscript=1" /></noscript>
+    <!-- End Meta Pixel Code -->
     <meta charset="utf-8">
     @yield('script')
     @yield('meta')
