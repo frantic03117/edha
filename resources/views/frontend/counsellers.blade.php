@@ -1,7 +1,7 @@
 @extends('frontend.main')
 @section('content')
     <style>
-        
+
     </style>
     <section class="space teamSection">
         <div class="container-fluid">
@@ -58,9 +58,10 @@
                                                                 <div class="d-flex wrapper{{ $i }} pb-2 maxheightexpertbox expert__box flex-wrap align-items-center gap-1"
                                                                     id="scrollbar">
                                                                     @foreach ($item['expertize'] as $i => $exp)
-                                                                        @if(in_array($exp['id'], $sids))
-                                                                            <span  class="">{{ $exp['sub_category'] }}</span>
-                                                                         @endif
+                                                                        @if (in_array($exp['id'], $sids))
+                                                                            <span
+                                                                                class="">{{ $exp['sub_category'] }}</span>
+                                                                        @endif
                                                                     @endforeach
                                                                 </div>
 
@@ -171,6 +172,8 @@
                 event.target.disabled = true;
                 event.target.innerHTML = "<strong>Request sent.</strong>";
                 count++
+                fbq('init', '1887710252071110');
+                fbq('track', 'AddToCart');
             } else {
                 toastr.error("Only 4 request can be sent at one search", 'Error')
             }
